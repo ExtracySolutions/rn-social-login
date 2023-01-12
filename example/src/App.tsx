@@ -1,18 +1,31 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-social-login';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { AuthManager } from 'rn-social-login';
+
+const authManager = new AuthManager({
+  google: {
+    iosClientId:
+      '126613952157-vflcg9lsqoc8ms8ji67k5mbkk0ji87cb.apps.googleusercontent.com',
+    webClientId:
+      '126613952157-jsdjqq52e86d02sumui2f5m27nb4thh7.apps.googleusercontent.com',
+  },
+});
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState();
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+  const signIn = React.useCallback(async () => {
+    const user = await authManager.google.signIn();
+    console.log('[user]', user);
+    setResult(JSON.stringify(user, null, 2));
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TouchableOpacity onPress={signIn}>
+        <Text>Result: {result}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
