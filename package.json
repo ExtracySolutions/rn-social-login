@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/phungdaihiep79/rn-social-login",
+  "repository": "https://github.com/ExtracySolutions/rn-social-login",
   "author": "daihiep <phungdaihiep98@gmail.com> (https://github.com/phungdaihiep79)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/phungdaihiep79/rn-social-login/issues"
+    "url": "https://github.com/ExtracySolutions/rn-social-login/issues"
   },
-  "homepage": "https://github.com/phungdaihiep79/rn-social-login#readme",
+  "homepage": "https://github.com/ExtracySolutions/rn-social-login#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
