@@ -1,8 +1,6 @@
 import {
   GoogleSignin,
-  GoogleSigninButton,
   statusCodes,
-  SignInParams,
   ConfigureParams,
   User,
 } from '@react-native-google-signin/google-signin';
@@ -37,7 +35,6 @@ export class GoogleAuth extends BaseAuth<GoogleAuthInitParams> {
       });
       if (hasPlayService) {
         const userInfo = await GoogleSignin.signIn();
-        console.log('[Login with Google info]:', userInfo);
         return userInfo;
       } else {
         throw new Error('Play Service not supported!');

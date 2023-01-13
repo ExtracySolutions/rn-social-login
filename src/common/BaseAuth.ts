@@ -1,5 +1,5 @@
 export abstract class BaseAuth<T> {
-  constructor(arg: T) {}
+  constructor(_arg: T) {}
 
   /**
    * Configuration Auth service
