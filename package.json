@@ -74,8 +74,8 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
-    "@react-native-google-signin/google-signin": "^9.0.2",
-    "@invertase/react-native-apple-authentication": "^2.2.2",
+    "@react-native-google-signin/google-signin": "*",
+    "@invertase/react-native-apple-authentication": "*",
     "react": "*",
     "react-native": "*"
   },

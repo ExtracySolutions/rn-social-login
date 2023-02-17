@@ -23,8 +23,8 @@ export class AppleAuth extends BaseAuth<AppleAuthInitParams> {
       if (appleAuthAndroid.isSupported) {
         appleAuthAndroid.configure(androidConfig);
       }
-    } catch (error) {
-      throw new Error('Method configuration not working.');
+    } catch (error: any) {
+      throw new Error('Method configuration not working.', error);
     }
   }
 
@@ -44,15 +44,15 @@ export class AppleAuth extends BaseAuth<AppleAuthInitParams> {
         });
         return appleAuthRequestResponse;
       }
-    } catch (error) {
-      throw new Error('Method signIn not working.');
+    } catch (error: any) {
+      throw new Error('Method signIn not working.', error);
     }
   }
   async signOut() {
     try {
       // do some stuff
-    } catch (error) {
-      throw new Error('Method signOut not working.');
+    } catch (error: any) {
+      throw new Error('Method signOut not working.', error);
     }
   }
 }

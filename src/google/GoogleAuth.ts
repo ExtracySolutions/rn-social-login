@@ -23,8 +23,8 @@ export class GoogleAuth extends BaseAuth<GoogleAuthInitParams> {
   configuration(params: ConfigureParams) {
     try {
       GoogleSignin.configure(params);
-    } catch (error) {
-      throw new Error('Method configuration not working.');
+    } catch (error: any) {
+      throw new Error('Method configuration not working.', error);
     }
   }
 
@@ -42,15 +42,15 @@ export class GoogleAuth extends BaseAuth<GoogleAuthInitParams> {
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
-        throw new Error('User cancelled the login flow');
+        throw new Error('User cancelled the login flow', error);
       } else if (error.code === statusCodes.IN_PROGRESS) {
         // operation (e.g. sign in) is in progress already
-        throw new Error('Operation is in progress already');
+        throw new Error('Operation is in progress already', error);
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        throw new Error('Play Service not supported!');
+        throw new Error('Play Service not supported!', error);
       } else {
         // some other error happened
-        throw new Error('Method signIn not working.');
+        throw new Error('Method signIn not working.', error);
       }
     }
   }
@@ -58,8 +58,8 @@ export class GoogleAuth extends BaseAuth<GoogleAuthInitParams> {
   async signOut() {
     try {
       await GoogleSignin.signOut();
-    } catch (error) {
-      throw new Error('Method signOut not working.');
+    } catch (error: any) {
+      throw new Error('Method signOut not working.', error);
     }
   }
 }
