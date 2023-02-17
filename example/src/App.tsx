@@ -24,6 +24,7 @@ export default function App() {
   const signInGoogle = React.useCallback(async () => {
     const user = await authManager.google.signIn();
     console.log('[user]', user);
+    //@ts-ignore
     setResult(JSON.stringify(user, null, 2));
   }, []);
 
