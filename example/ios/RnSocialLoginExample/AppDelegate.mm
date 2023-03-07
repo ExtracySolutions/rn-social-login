@@ -6,6 +6,11 @@
 
 #import <React/RCTAppSetupUtils.h>
 
+#import <TwitterKit/TWTRKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
+#import <React/RCTLinkingManager.h> // <- Add This Import
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
 #import <React/RCTCxxBridgeDelegate.h>
@@ -33,6 +38,9 @@
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                      didFinishLaunchingWithOptions:launchOptions];
 
 #if RCT_NEW_ARCH_ENABLED
   _contextContainer = std::make_shared<facebook::react::ContextContainer const>();
@@ -56,6 +64,25 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  if([[Twitter sharedInstance] application:app openURL:url options:options]){
+    return YES;
+  }
+  
+  if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options]) {
+    return YES;
+  }
+
+  if ([RCTLinkingManager application:app openURL:url options:options]) {
+    return YES;
+  }
+  
+  return NO;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

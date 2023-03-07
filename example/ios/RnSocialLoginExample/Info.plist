@@ -36,6 +36,20 @@
 					<string>rn-social-login</string>
 				</array>
 			</dict>
+			<dict>
+				<key>CFBundleURLSchemes</key>
+				<array>
+				<string>twitterkit-API KEY</string>
+				</array>
+			</dict>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>fb_login_protocol_scheme</string>
+				</array>
+			</dict>
 		</array>
 		<key>CFBundleVersion</key>
 		<string>1</string>
@@ -68,5 +82,20 @@
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+
+
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>twitter</string>
+			<string>twitterauth</string>
+			<string>fbapi</string>
+  			<string>fb-messenger-share-api</string>
+		</array>
+		<key>FacebookAppID</key>
+		<string>FacebookAppID</string>
+		<key>FacebookClientToken</key>
+		<string>FacebookClientToken</string>
+		<key>FacebookDisplayName</key>
+		<string>Extracy Wallet</string>
 	</dict>
 </plist>
