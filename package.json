@@ -53,6 +53,7 @@
     "@invertase/react-native-apple-authentication": "^2.2.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@react-native-google-signin/google-signin": "^9.0.2",
+    "@react-native-twitter-signin/twitter-signin": "^1.2.0",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
@@ -67,6 +68,7 @@
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-builder-bob": "^0.18.2",
+    "react-native-fbsdk-next": "^10.1.0",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
   },
@@ -74,8 +76,10 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
-    "@react-native-google-signin/google-signin": "*",
     "@invertase/react-native-apple-authentication": "*",
+    "@react-native-google-signin/google-signin": "*",
+    "@react-native-twitter-signin/twitter-signin": "*",
+    "react-native-fbsdk-next": "*",
     "react": "*",
     "react-native": "*"
   },
@@ -113,7 +117,10 @@
     "parser": "@babel/eslint-parser",
     "extends": [
       "@react-native-community",
-      "prettier"
+      "prettier",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
       "prettier/prettier": [
